@@ -7,6 +7,8 @@ import java.util.Scanner;
 public class Lesson2Ex1 {
     public static void main(String[] args) {
 
+        //Same but less code on -> Lesson2Ex1_v2
+
         String[] tokens = new String[3];
         int[] tokenLength = new int[tokens.length];
 
