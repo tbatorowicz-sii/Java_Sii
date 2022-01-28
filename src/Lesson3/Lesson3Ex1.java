@@ -10,17 +10,17 @@ public class Lesson3Ex1 {
         for (int i = 0; i < 5; i++) employeeList.add(new Employee());
 
         loop: while (true) {
-            System.out.println("""
+            System.out.print("""
                     What do you wish to do now?\s
                     1. Print sum of all employees salary\s
                     2. Display all employees data\s
                     3. Add new employee\s
-                    4. End program""");
-            System.out.print("Enter the number: ");
+                    4. End program\s
+                    Enter the number:""");
             switch (new Scanner(System.in).next()) {
                 case "1":
-                    System.out.println("Sum of all employees salary is: "
-                            + employeeList.stream().mapToInt(e -> (int) e.getSalary()).sum());
+                    System.out.println("Sum of all employees salary is: " +
+                            employeeList.stream().mapToInt(e -> (int) e.getSalary()).sum());
                     break;
                 case "2":
                     employeeList.forEach(Employee::getAllData);
