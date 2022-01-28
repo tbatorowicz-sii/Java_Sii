@@ -19,8 +19,7 @@ public class Lesson3Ex1 {
                     Enter the number:""");
             switch (new Scanner(System.in).next()) {
                 case "1":
-                    System.out.println("Sum of all employees salary is: " +
-                            employeeList.stream().mapToInt(e -> (int) e.getSalary()).sum());
+                    System.out.println(employeeList.stream().mapToInt(e -> (int) e.getSalary()).sum());
                     break;
                 case "2":
                     employeeList.forEach(Employee::getAllData);
