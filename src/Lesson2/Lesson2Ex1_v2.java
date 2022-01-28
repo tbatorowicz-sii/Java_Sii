@@ -8,15 +8,15 @@ public class Lesson2Ex1_v2 {
         String[] tokens = new String[3];
         for (int i = 0; i < tokens.length; i++)
             tokens[i] = returnRandomToken(new Scanner(System.in).nextInt());
-        for (int i = 0; i < tokens.length; i++)
-            System.out.println("Token length is " + tokens[i].length() + ", and the value is: " + tokens[i]);
+        for (String token : tokens)
+            System.out.println("Token length is " + token.length() + ", and the value is: " + token);
     }
 
     public static String returnRandomToken(int tokenLength) {
-        String token = "";
+        StringBuilder token = new StringBuilder();
         char[] tokenChars = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890!@#$%^&*()".toCharArray();
         while (token.length() != tokenLength)
-            token += tokenChars[(new Random().nextInt(tokenChars.length))];
-        return token;
+            token.append(tokenChars[(new Random().nextInt(tokenChars.length))]);
+        return token.toString();
     }
 }

@@ -26,17 +26,17 @@ public class Lesson2Ex1 {
             try {
                 return new Scanner(System.in).nextInt();
             } catch (InputMismatchException e) {
-                continue;
+                System.out.print("Something has gone wrong. Please try again: ");
             }
         }
     }
 
     public static String generateToken(int tokenLength) {
-        String token = "";
+        StringBuilder token = new StringBuilder();
         char[] tokenChars = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890!@#$%^&*()".toCharArray();
         while (token.length() != tokenLength)
-            token += tokenChars[(new Random().nextInt(tokenChars.length))];
-        return token;
+            token.append(tokenChars[(new Random().nextInt(tokenChars.length))]);
+        return token.toString();
     }
 
 }

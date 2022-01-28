@@ -26,7 +26,7 @@ public class Lesson1Ex3 {
             try {
                 return new Scanner(System.in).nextInt();
             } catch (InputMismatchException e) {
-                continue;
+                System.out.print("Something has gone wrong. Please try again: ");
             }
         }
     }

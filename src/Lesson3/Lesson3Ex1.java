@@ -7,14 +7,15 @@ public class Lesson3Ex1 {
     public static void main(String[] args) {
         ArrayList<Employee> employeeList = new ArrayList<>();
 
-        for (int i = 0; i < 5; i++) employeeList.add(new Employee());
+        for (int i = 0; i < 1; i++) employeeList.add(new Employee());
 
         loop: while (true) {
-            System.out.println("What do you wish to do now? \n" +
-                    "1. Print sum of all employees salary \n" +
-                    "2. Display all employees data \n" +
-                    "3. Add new employee \n" +
-                    "4. End program");
+            System.out.println("""
+                    What do you wish to do now?\s
+                    1. Print sum of all employees salary\s
+                    2. Display all employees data\s
+                    3. Add new employee\s
+                    4. End program""");
             System.out.print("Enter the number: ");
             switch (new Scanner(System.in).next()) {
                 case "1":
@@ -29,8 +30,6 @@ public class Lesson3Ex1 {
                     break;
                 case "4":
                     break loop;
-                default:
-                    continue loop;
             }
         }
     }

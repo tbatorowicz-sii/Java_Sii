@@ -3,9 +3,9 @@ package Lesson3;
 import static Lesson3.MyScanner.*;
 
 class Employee {
-    private String name;
-    private String surname;
-    private int salary;
+    private final String name;
+    private final String surname;
+    private final int salary;
 
     public float getSalary() {
         return salary;

@@ -10,7 +10,6 @@ public class MyScanner {
                 return new Scanner(System.in).nextInt();
             } catch (InputMismatchException e) {
                 System.out.print("Something has gone wrong. Please try again: ");
-                continue;
             }
         }
     }
