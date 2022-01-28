@@ -7,7 +7,7 @@ public class Lesson3Ex1 {
     public static void main(String[] args) {
         ArrayList<Employee> employeeList = new ArrayList<>();
 
-        for (int i = 0; i < 1; i++) employeeList.add(new Employee());
+        for (int i = 0; i < 5; i++) employeeList.add(new Employee());
 
         loop: while (true) {
             System.out.println("""
