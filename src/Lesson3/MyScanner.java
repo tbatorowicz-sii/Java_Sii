@@ -14,7 +14,7 @@ public class MyScanner {
         }
     }
 
-    public static String stringNamesScanner() {
+    public static String namesScanner() {
         while (true) {
             String s = new Scanner(System.in).next();
             if (s.matches("[a-zA-Z]+"))
