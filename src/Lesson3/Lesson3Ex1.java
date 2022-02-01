@@ -1,7 +1,6 @@
 package Lesson3;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 import static Lesson3.MyScanner.*;
 
@@ -9,7 +8,7 @@ public class Lesson3Ex1 {
     public static void main(String[] args) {
         ArrayList<Employee> empList = new ArrayList<>();
 
-        while (empList.size() != 5) {
+        while (empList.size() != 1) {
             empList.add(new Employee(nameScan(), surnameScan(), salaryScan()));
         }
 
@@ -21,18 +20,21 @@ public class Lesson3Ex1 {
                     3. Add new employee\s
                     4. End program\s
                     Enter the number:""");
-            switch (new Scanner(System.in).next()) {
-                case "1":
+            switch (intScanner()) {
+                case 1:
                     System.out.println(empList.stream().mapToInt(Employee::getSalary).sum());
                     break;
-                case "2":
+                case 2:
                     empList.forEach(Employee::getAllData);
                     break;
-                case "3":
+                case 3:
                     empList.add(new Employee(nameScan(), surnameScan(), salaryScan()));
                     break;
-                case "4":
+                case 4:
                     return;
+                default:
+                    System.out.println("Out of range");
+                    continue;
             }
         }
     }

@@ -10,7 +10,7 @@ public class MyScanner {
             try {
                 return new Scanner(System.in).nextInt();
             } catch (InputMismatchException e) {
-                System.out.print("Something has gone wrong. Please try again: ");
+                System.out.print("Error! Non-integer occurred. Please try again: ");
             }
         }
     }
