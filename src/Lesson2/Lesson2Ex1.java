@@ -18,8 +18,9 @@ public class Lesson2Ex1 {
             tokens[i] = generateToken(tokenLength[i]);
         }
 
-        for (int i = 0; i < tokens.length; i++)
+        for (int i = 0; i < tokens.length; i++) {
             System.out.println("Token no." + (i + 1) + " length is " + tokenLength[i] + ", and the value is: " + tokens[i]);
+        }
 
     }
 
@@ -36,8 +37,9 @@ public class Lesson2Ex1 {
     public static String generateToken(int tokenLength) {
         StringBuilder token = new StringBuilder();
         char[] tokenChars = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890!@#$%^&*()".toCharArray();
-        while (token.length() != tokenLength)
+        while (token.length() != tokenLength) {
             token.append(tokenChars[(new Random().nextInt(tokenChars.length))]);
+        }
         return token.toString();
     }
 

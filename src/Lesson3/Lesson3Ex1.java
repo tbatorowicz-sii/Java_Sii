@@ -3,11 +3,15 @@ package Lesson3;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import static Lesson3.MyScanner.*;
+
 public class Lesson3Ex1 {
     public static void main(String[] args) {
         ArrayList<Employee> empList = new ArrayList<>();
 
-        while (empList.size() != 5) empList.add(new Employee());
+        while (empList.size() != 5) {
+            empList.add(new Employee(nameScan(), surnameScan(), salaryScan()));
+        }
 
         while (true) {
             System.out.print("""
@@ -25,7 +29,7 @@ public class Lesson3Ex1 {
                     empList.forEach(Employee::getAllData);
                     break;
                 case "3":
-                    empList.add(new Employee());
+                    empList.add(new Employee(nameScan(), surnameScan(), salaryScan()));
                     break;
                 case "4":
                     return;

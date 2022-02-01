@@ -1,8 +1,5 @@
 package Lesson3;
 
-import static Lesson3.MyScanner.*;
-
-
 class Employee {
     private final String name;
     private final String surname;
@@ -16,12 +13,9 @@ class Employee {
         System.out.println("Salary for " + name + " " + surname + " is " + salary);
     }
 
-    public Employee() {
-        System.out.print("Please enter name of employee: ");
-        this.name = namesScanner();
-        System.out.print("Please enter surname of employee: ");
-        this.surname = namesScanner();
-        System.out.print("Please set salary for employee: ");
-        this.salary = intScanner();
+    public Employee(String name, String surname, int salary) {
+        this.name = name;
+        this.surname = surname;
+        this.salary = salary;
     }
 }
