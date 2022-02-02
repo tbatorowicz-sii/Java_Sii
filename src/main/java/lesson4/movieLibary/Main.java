@@ -39,47 +39,40 @@ public class Main {
         }
 
         ArrayList<ArrayList> arrArrActorNames = new ArrayList<>();
-        ArrayList<ArrayList> arrArrActorSurnmes = new ArrayList<>();
+        ArrayList<ArrayList> arrArrActorSurnames = new ArrayList<>();
+        ArrayList<ArrayList> arrArrDirectorNames = new ArrayList<>();
+        ArrayList<ArrayList> arrArrDirectorSurnames = new ArrayList<>();
 
         for (int i = 0; i < jsonStringActors.size(); i++) {
-            //System.out.println(jsonStringActors.get(i));
             ArrayList<String> actorsNameList = new ArrayList<>();
             ArrayList<String> actorsSurnameList = new ArrayList<>();
+            ArrayList<String> directorNameList = new ArrayList<>();
+            ArrayList<String> directorSurnameList = new ArrayList<>();
             for (int j = 0; j < jsonStringActors.get(i).length(); j++) {
                 actorsNameList.add(jsonStringActors.get(i).getJSONObject(j).getString("name"));
                 actorsSurnameList.add(jsonStringActors.get(i).getJSONObject(j).getString("surname"));
-                //System.out.println(actorsNameList.get(j) + " " + actorsSurnameList.get(j));
             }
-            arrArrActorNames.add(actorsNameList);
-            arrArrActorSurnmes.add(actorsSurnameList);
-        }
-
-        ArrayList<ArrayList> arrArrDirectorNames = new ArrayList<>();
-        ArrayList<ArrayList> arrArrDirectorSurnmes = new ArrayList<>();
-
-        for (int i = 0; i < jsonStringDirectors.size(); i++) {
-            //System.out.println(jsonStringActors.get(i));
-            ArrayList<String> directorNameList = new ArrayList<>();
-            ArrayList<String> directorSurnameList = new ArrayList<>();
             for (int j = 0; j < jsonStringDirectors.get(i).length(); j++) {
                 directorNameList.add(jsonStringDirectors.get(i).getJSONObject(j).getString("name"));
                 directorSurnameList.add(jsonStringDirectors.get(i).getJSONObject(j).getString("surname"));
-                //System.out.println(actorsNameList.get(j) + " " + actorsSurnameList.get(j));
             }
+            arrArrActorNames.add(actorsNameList);
+            arrArrActorSurnames.add(actorsSurnameList);
             arrArrDirectorNames.add(directorNameList);
-            arrArrDirectorSurnmes.add(directorSurnameList);
+            arrArrDirectorSurnames.add(directorSurnameList);
         }
+
 
         for (int i = 0; i < jsonArrayMovies.length(); i++)
         {
-            System.out.println(titleList.get(i));
-            System.out.println(genreList.get(i));
-            System.out.println(yearList.get(i));
-            System.out.println(arrArrActorNames.get(i));
-            System.out.println(arrArrActorSurnmes.get(i));
+            System.out.println("Title: " + titleList.get(i));
+            System.out.println("Genre: " + genreList.get(i));
+            System.out.println("Year: " + yearList.get(i));
+            for (int j = 0; j < arrArrActorNames.get(i).size(); j++)
+                System.out.println("Actor: " + arrArrActorNames.get(i).get(j) + " " + arrArrActorSurnames.get(i).get(j));
 
-            System.out.println(arrArrDirectorNames.get(i));
-            System.out.println(arrArrDirectorSurnmes.get(i));
+            for (int j = 0; j < arrArrDirectorNames.get(i).size(); j++)
+                System.out.println("Director: " + arrArrDirectorNames.get(i).get(j) + " " + (arrArrDirectorSurnames.get(i).get(j)));
 
             System.out.println();
             System.out.println();
