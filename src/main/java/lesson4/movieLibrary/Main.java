@@ -68,23 +68,23 @@ public class Main {
 
 
         //Converting Arrays to objects
-        MovieLibary movieLibary = new MovieLibary(new ArrayList<>());
+        MovieLibrary movieLibrary = new MovieLibrary(new ArrayList<>());
         for (int i = 0; i < jsonArrayMovies.length(); i++)
         {
-            ArrayList<Director> directorArrayList2 = new ArrayList<>();
+            ArrayList<Director> directorArrayList = new ArrayList<>();
             for (int j = 0; j < arrArrDirectorNames.get(i).size(); j++)
-                directorArrayList2.add(new Director(arrArrDirectorNames.get(i).get(j).toString(), arrArrDirectorSurnames.get(i).get(j).toString()));
+                directorArrayList.add(new Director(arrArrDirectorNames.get(i).get(j).toString(), arrArrDirectorSurnames.get(i).get(j).toString()));
 
-            ArrayList<Actor> actorArrayList2 = new ArrayList<>();
+            ArrayList<Actor> actorArrayList = new ArrayList<>();
             for (int j = 0; j < arrArrActorNames.get(i).size(); j++)
-                actorArrayList2.add(new Actor(arrArrActorNames.get(i).get(j).toString(), arrArrActorSurnames.get(i).get(j).toString()));
+                actorArrayList.add(new Actor(arrArrActorNames.get(i).get(j).toString(), arrArrActorSurnames.get(i).get(j).toString()));
 
-            movieLibary.addMovie(new Movie(titleList.get(i), genreList.get(i), yearList.get(i),actorArrayList2,directorArrayList2));
+            movieLibrary.addMovie(new Movie(titleList.get(i), genreList.get(i), yearList.get(i),actorArrayList,directorArrayList));
         }
 
         //Display all movies info
-        for (int i = 0; i < movieLibary.getMovieArrayList().size(); i++)
-            System.out.println(movieLibary.getMovie(i).toString());
+        for (int i = 0; i < movieLibrary.getMovieArrayList().size(); i++)
+            System.out.println(movieLibrary.getMovie(i).toString());
 
 
         while (true) {
@@ -100,20 +100,21 @@ public class Main {
                     int yearFrom = new Scanner(System.in).nextInt();
                     System.out.print("Year to: ");
                     int yearTo = new Scanner(System.in).nextInt();
-                    for (Movie m: movieLibary.getMovieArrayList()) {
+                    for (Movie m: movieLibrary.getMovieArrayList()) {
                         if(m.getYear()>=yearFrom&&m.getYear()<=yearTo)
                             System.out.println(m.getTitle());
                     }
                     break;
                 case 2:
-                    System.out.println(movieLibary.getMovie(new Random().nextInt(movieLibary.getMovieArrayList().size())));
+                    System.out.println();
+                    System.out.println(movieLibrary.getMovie(new Random().nextInt(movieLibrary.getMovieArrayList().size())));
                     break;
                 case 3:
                     System.out.print("\nActor name: ");
                     String firstName = new Scanner(System.in).next();
                     System.out.print("Actor surname: ");
                     String lastName = new Scanner(System.in).next();
-                    for (Movie m: movieLibary.getMovieArrayList()) {
+                    for (Movie m: movieLibrary.getMovieArrayList()) {
                         for (Actor a : m.getActors()) {
                             if (firstName.equals(a.getName()) && lastName.equals(a.getSurname())) {
                                 System.out.println(m.getTitle());
@@ -129,8 +130,8 @@ public class Main {
             }
         }
 
-        /*for (int i = 0; i < movieLibary.getMovieArrayList().size(); i++)
-            System.out.println(movieLibary.getMovie(i).toString());*/
+        /*for (int i = 0; i < movieLibrary.getMovieArrayList().size(); i++)
+            System.out.println(movieLibrary.getMovie(i).toString());*/
         /*for (int i = 0; i < jsonArrayMovies.length(); i++)
         {
             System.out.println("Title: " + titleList.get(i));

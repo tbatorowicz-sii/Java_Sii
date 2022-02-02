@@ -2,7 +2,7 @@ package lesson4.movieLibrary;
 
 import java.util.ArrayList;
 
-public class MovieLibary {
+public class MovieLibrary {
     private ArrayList<Movie> movieArrayList;
 
     public void setMovieArrayList(ArrayList<Movie> movieArrayList) {
@@ -14,7 +14,7 @@ public class MovieLibary {
     }
 
 
-    public MovieLibary(ArrayList<Movie> movieArrayList){
+    public MovieLibrary(ArrayList<Movie> movieArrayList){
         this.movieArrayList = movieArrayList;
     }
 
