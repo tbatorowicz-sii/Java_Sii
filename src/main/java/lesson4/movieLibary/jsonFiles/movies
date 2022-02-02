@@ -1,0 +1,125 @@
+{
+  "movies": [
+    {
+      "title": "Matrix",
+      "genre": "ACTION",
+      "year": "1999",
+      "actors": [
+        {
+          "name": "Keanu",
+          "surname": "Reeves"
+        },
+        {
+          "name": "Laurence",
+          "surname": "Fishburne"
+        },
+        {
+          "name": "Carrie",
+          "surname": "Moss"
+        }
+      ],
+      "directors": [
+        {
+          "name": "Lana",
+          "surname": "Wachowski"
+        },
+        {
+          "name": "Lilly",
+          "surname": "Wachowski"
+        }
+      ]
+    },
+    {
+      "title": "Cube",
+      "genre": "HORROR",
+      "year": "1997",
+      "actors": [
+        {
+          "name": "Nicole",
+          "surname": "Boer"
+        },
+        {
+          "name": "Maurice",
+          "surname": "Wint"
+        },
+        {
+          "name": "David",
+          "surname": "Hewlett"
+        }
+      ],
+      "directors": [
+        {
+          "name": "Vincenzo",
+          "surname": "Natali"
+        }
+      ]
+    },
+    {
+      "title": "Star Wars",
+      "genre": "FANTASY",
+      "year": "1977",
+      "actors": [
+        {
+          "name": "Mark",
+          "surname": "Hamill"
+        },
+        {
+          "name": "Harrison",
+          "surname": "Ford"
+        },
+        {
+          "name": "Carrie",
+          "surname": "Fisher"
+        }
+      ],
+      "directors": [
+        {
+          "name": "George",
+          "surname": "Lucas"
+        }
+      ]
+    },
+    {
+      "title": "Pulp Fiction",
+      "genre": "DRAMA",
+      "year": "1994",
+      "actors": [
+        {
+          "name": "John",
+          "surname": "Travolta"
+        },
+        {
+          "name": "Samuel",
+          "surname": "Jackson"
+        }
+      ],
+      "directors": [
+        {
+          "name": "Quentin",
+          "surname": "Tatantino"
+        }
+      ]
+    },
+    {
+      "title": "Inception",
+      "genre": "ACTION",
+      "year": "2010",
+      "actors": [
+        {
+          "name": "Leonardo",
+          "surname": "DiCaprio"
+        },
+        {
+          "name": "Elliot",
+          "surname": "Page"
+        }
+      ],
+      "directors": [
+        {
+          "name": "Christopher",
+          "surname": "Nolan"
+        }
+      ]
+    }
+  ]
+}

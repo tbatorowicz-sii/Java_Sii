@@ -1,8 +1,8 @@
-package Lesson3;
+package lesson3;
 
 import java.util.ArrayList;
 
-import static Lesson3.MyScanner.*;
+import static lesson3.MyScanner.*;
 
 public class Lesson3Ex1 {
     public static void main(String[] args) {
@@ -13,13 +13,12 @@ public class Lesson3Ex1 {
         }
 
         while (true) {
-            System.out.print("""
-                    What do you wish to do now?\s
-                    1. Print sum of all employees salary\s
-                    2. Display all employees data\s
-                    3. Add new employee\s
-                    4. End program\s
-                    Enter the number:""");
+            System.out.print("What do you wish to do now? \n" +
+                             "1. Print sum of all employees salary \n" +
+                             "2. Display all employees data \n" +
+                             "3. Add new employee \n" +
+                             "4. End program \n" +
+                             "Enter the number:");
             switch (intScanner()) {
                 case 1:
                     System.out.println(empList.stream().mapToInt(Employee::getSalary).sum());

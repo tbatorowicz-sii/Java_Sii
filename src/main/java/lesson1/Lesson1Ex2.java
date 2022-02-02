@@ -1,4 +1,4 @@
-package Lesson1;
+package lesson1;
 
 import java.util.InputMismatchException;
 import java.util.Random;

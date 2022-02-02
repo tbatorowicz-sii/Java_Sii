@@ -1,4 +1,4 @@
-package Lesson3;
+package lesson3;
 
 class Employee {
     private final String name;
