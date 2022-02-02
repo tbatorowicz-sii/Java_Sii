@@ -82,11 +82,6 @@ public class Main {
             movieLibrary.addMovie(new Movie(titleList.get(i), genreList.get(i), yearList.get(i),actorArrayList,directorArrayList));
         }
 
-        //Display all movies info
-        for (int i = 0; i < movieLibrary.getMovieArrayList().size(); i++)
-            System.out.println(movieLibrary.getMovie(i).toString());
-
-
         while (true) {
             System.out.print("\n What do you wish to do now? \n" +
                              "1. Display movies from period \n" +
@@ -132,6 +127,7 @@ public class Main {
 
         /*for (int i = 0; i < movieLibrary.getMovieArrayList().size(); i++)
             System.out.println(movieLibrary.getMovie(i).toString());*/
+        
         /*for (int i = 0; i < jsonArrayMovies.length(); i++)
         {
             System.out.println("Title: " + titleList.get(i));
