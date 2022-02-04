@@ -1,6 +1,6 @@
 package lesson4.movieLibrary;
 
-public class Director {
+public class Director{
     private String name;
     private String surname;
 

@@ -5,10 +5,6 @@ import java.util.ArrayList;
 public class MovieLibrary {
     private ArrayList<Movie> movieArrayList;
 
-    public void setMovieArrayList(ArrayList<Movie> movieArrayList) {
-        this.movieArrayList = movieArrayList;
-    }
-
     public ArrayList<Movie> getMovieArrayList() {
         return movieArrayList;
     }
