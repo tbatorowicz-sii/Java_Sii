@@ -1,9 +1,9 @@
-package lesson4.movieLibrary.functions;
+package lesson4.movielibrary.functions;
 
-import lesson4.movieLibrary.classes.Actor;
-import lesson4.movieLibrary.classes.Director;
-import lesson4.movieLibrary.classes.Movie;
-import lesson4.movieLibrary.classes.MovieLibrary;
+import lesson4.movielibrary.classes.Actor;
+import lesson4.movielibrary.classes.Director;
+import lesson4.movielibrary.classes.Movie;
+import lesson4.movielibrary.classes.MovieLibrary;
 import org.apache.commons.io.FileUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -22,8 +22,7 @@ public class JsonMoviesToMovieLibraryObject {
         String jsonString = FileUtils.readFileToString(new File("src/main/java/lesson4/movieLibrary/jsonFiles/movies"), StandardCharsets.UTF_8);
         JSONArray jsonArrayMovies = new JSONObject(jsonString).getJSONArray("movies");
 
-        for (int i = 0; i < jsonArrayMovies.length(); i++)
-        {
+        for (int i = 0; i < jsonArrayMovies.length(); i++) {
             String movieJsonString = jsonArrayMovies.get(i).toString();
             JSONObject jsonObject = jsonArrayMovies.getJSONObject(i);
 
@@ -36,7 +35,7 @@ public class JsonMoviesToMovieLibraryObject {
         }
     }
 
-    public static ArrayList<Actor> returnActorArrayList(String movieJsonString, String key){
+    public static ArrayList<Actor> returnActorArrayList(String movieJsonString, String key) {
         JSONArray jsonArray = new JSONObject(movieJsonString).getJSONArray(key);
         return IntStream.range(0, jsonArray.length()).mapToObj(i -> new Actor(
                         jsonArray.getJSONObject(i).getString("name"),
@@ -44,7 +43,7 @@ public class JsonMoviesToMovieLibraryObject {
                 .collect(Collectors.toCollection(ArrayList::new));
     }
 
-    public static ArrayList<Director> returnDirectorArrayList(String movieJsonString, String key){
+    public static ArrayList<Director> returnDirectorArrayList(String movieJsonString, String key) {
         JSONArray jsonArray = new JSONObject(movieJsonString).getJSONArray(key);
         return IntStream.range(0, jsonArray.length()).mapToObj(i -> new Director(
                         jsonArray.getJSONObject(i).getString("name"),

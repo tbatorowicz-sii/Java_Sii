@@ -1,8 +1,8 @@
-package lesson4.movieLibrary.classes;
+package lesson4.movielibrary.classes;
 
 import java.util.ArrayList;
 
-public class Movie{
+public class Movie {
     private String title;
     private String genre;
     private int year;

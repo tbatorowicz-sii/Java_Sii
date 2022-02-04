@@ -1,4 +1,4 @@
-package lesson4.movieLibrary.classes;
+package lesson4.movielibrary.classes;
 
 import java.util.ArrayList;
 
@@ -10,20 +10,20 @@ public class MovieLibrary {
     }
 
 
-    public MovieLibrary(ArrayList<Movie> movieArrayList){
+    public MovieLibrary(ArrayList<Movie> movieArrayList) {
         this.movieArrayList = movieArrayList;
     }
 
     @Override
     public String toString() {
-        return movieArrayList.toString().substring(1, movieArrayList.toString().length()-1);
+        return movieArrayList.toString().substring(1, movieArrayList.toString().length() - 1);
     }
 
-    public Movie getMovie(int index){
+    public Movie getMovie(int index) {
         return movieArrayList.get(index);
     }
 
-    public void addMovie(Movie movie){
+    public void addMovie(Movie movie) {
         this.movieArrayList.add(movie);
     }
 }

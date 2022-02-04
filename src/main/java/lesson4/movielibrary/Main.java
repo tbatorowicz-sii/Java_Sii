@@ -1,13 +1,13 @@
-package lesson4.movieLibrary;
+package lesson4.movielibrary;
 
-import lesson4.movieLibrary.classes.MovieLibrary;
-import lesson4.movieLibrary.functions.*;
+import lesson4.movielibrary.classes.MovieLibrary;
+import lesson4.movielibrary.functions.JsonMoviesToMovieLibraryObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import static lesson4.movieLibrary.functions.Functions.*;
+import static lesson4.movielibrary.functions.Functions.*;
 
 public class Main {
 
