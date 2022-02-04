@@ -16,70 +16,37 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        //Import JSON file to String, then to JSONArray
-        //Each array element contains full movie info in JSON 'language'
+        MovieLibrary movieLibrary = new MovieLibrary(new ArrayList<>());
+
         String jsonString = FileUtils.readFileToString(new File("src/main/java/lesson4/movieLibrary/jsonFiles/movies"), StandardCharsets.UTF_8);
         JSONArray jsonArrayMovies = new JSONObject(jsonString).getJSONArray("movies");
 
-        //Conversion of JSONArray to ArrayList of Strings
-        ArrayList<String> jsonStringMovies = new ArrayList<>();
-        for (int i=0;i<jsonArrayMovies.length();i++)
-            jsonStringMovies.add(jsonArrayMovies.get(i).toString());
-
-        //Declaration of Arrays, each Array has to contain other kind of information
-        ArrayList<String> titleList = new ArrayList<>();
-        ArrayList<String> genreList = new ArrayList<>();
-        ArrayList<Integer> yearList = new ArrayList<>();
-        ArrayList<ArrayList> arrArrActorNames = new ArrayList<>();
-        ArrayList<ArrayList> arrArrActorSurnames = new ArrayList<>();
-        ArrayList<ArrayList> arrArrDirectorNames = new ArrayList<>();
-        ArrayList<ArrayList> arrArrDirectorSurnames = new ArrayList<>();
-
-        //Iterate through "ArrayList of Strings", and assigning all movie information to correct Arrays
         for (int i = 0; i < jsonArrayMovies.length(); i++)
         {
-            titleList.add(jsonArrayMovies.getJSONObject(i).getString("title"));
-            genreList.add(jsonArrayMovies.getJSONObject(i).getString("genre"));
-            yearList.add(jsonArrayMovies.getJSONObject(i).getInt("year"));
+            String movieJsonString = jsonArrayMovies.get(i).toString();
 
-            //Temporary Arrays to temporary hold deeper-level information
-            ArrayList<String> actorsNameList = new ArrayList<>();
-            ArrayList<String> actorsSurnameList = new ArrayList<>();
-            ArrayList<String> directorNameList = new ArrayList<>();
-            ArrayList<String> directorSurnameList = new ArrayList<>();
+            JSONObject jsonObject = jsonArrayMovies.getJSONObject(i);
+            String title = jsonObject.getString("title");
+            String genre = jsonObject.getString("genre");
+            int year = jsonObject.getInt("year");
 
-            for (int j = 0; j < new JSONObject(jsonStringMovies.get(i)).getJSONArray("actors").length(); j++) {
-                actorsNameList.add(new JSONObject(jsonStringMovies.get(i)).getJSONArray("actors").getJSONObject(j).getString("name"));
-                actorsSurnameList.add(new JSONObject(jsonStringMovies.get(i)).getJSONArray("actors").getJSONObject(j).getString("surname"));
-            }
-            for (int j = 0; j < new JSONObject(jsonStringMovies.get(i)).getJSONArray("directors").length(); j++) {
-                directorNameList.add(new JSONObject(jsonStringMovies.get(i)).getJSONArray("directors").getJSONObject(j).getString("name"));
-                directorSurnameList.add(new JSONObject(jsonStringMovies.get(i)).getJSONArray("directors").getJSONObject(j).getString("surname"));
-            }
-
-            arrArrActorNames.add(actorsNameList);
-            arrArrActorSurnames.add(actorsSurnameList);
-            arrArrDirectorNames.add(directorNameList);
-            arrArrDirectorSurnames.add(directorSurnameList);
-        }
-        //Import finished!
-        //Now whole JSON file is distributed to correct arrays!
-        //You can make usage of this data by using arrays!
-
-
-        //Converting Arrays to objects
-        MovieLibrary movieLibrary = new MovieLibrary(new ArrayList<>());
-        for (int i = 0; i < jsonArrayMovies.length(); i++)
-        {
-            ArrayList<Director> directorArrayList = new ArrayList<>();
-            for (int j = 0; j < arrArrDirectorNames.get(i).size(); j++)
-                directorArrayList.add(new Director(arrArrDirectorNames.get(i).get(j).toString(), arrArrDirectorSurnames.get(i).get(j).toString()));
-
+            JSONArray jsonArrayActors = new JSONObject(movieJsonString).getJSONArray("actors");
             ArrayList<Actor> actorArrayList = new ArrayList<>();
-            for (int j = 0; j < arrArrActorNames.get(i).size(); j++)
-                actorArrayList.add(new Actor(arrArrActorNames.get(i).get(j).toString(), arrArrActorSurnames.get(i).get(j).toString()));
+            for (int j = 0; j < jsonArrayActors.length(); j++) {
+                String name = jsonArrayActors.getJSONObject(j).getString("name");
+                String surname = jsonArrayActors.getJSONObject(j).getString("surname");
+                actorArrayList.add(new Actor(name, surname));
+            }
 
-            movieLibrary.addMovie(new Movie(titleList.get(i), genreList.get(i), yearList.get(i),actorArrayList,directorArrayList));
+            JSONArray jsonArrayDirectors = new JSONObject(movieJsonString).getJSONArray("directors");
+            ArrayList<Director> directorArrayList = new ArrayList<>();
+            for (int j = 0; j < jsonArrayDirectors.length(); j++) {
+                String name = jsonArrayDirectors.getJSONObject(j).getString("name");
+                String surname = jsonArrayDirectors.getJSONObject(j).getString("surname");
+                directorArrayList.add(new Director(name, surname));
+            }
+
+            movieLibrary.addMovie(new Movie(title, genre, year, actorArrayList, directorArrayList));
         }
 
         while (true) {
@@ -124,23 +91,5 @@ public class Main {
                     continue;
             }
         }
-
-        /*for (int i = 0; i < movieLibrary.getMovieArrayList().size(); i++)
-            System.out.println(movieLibrary.getMovie(i).toString());*/
-
-        /*for (int i = 0; i < jsonArrayMovies.length(); i++)
-        {
-            System.out.println("Title: " + titleList.get(i));
-            System.out.println("Genre: " + genreList.get(i));
-            System.out.println("Year: " + yearList.get(i));
-            for (int j = 0; j < arrArrActorNames.get(i).size(); j++)
-                System.out.println("Actor: " + arrArrActorNames.get(i).get(j) + " " + arrArrActorSurnames.get(i).get(j));
-
-            for (int j = 0; j < arrArrDirectorNames.get(i).size(); j++)
-                System.out.println("Director: " + arrArrDirectorNames.get(i).get(j) + " " + (arrArrDirectorSurnames.get(i).get(j)));
-
-            System.out.println();
-            System.out.println();
-        }*/ //Display Arrays entry
     }
 }
