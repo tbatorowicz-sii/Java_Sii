@@ -15,7 +15,7 @@ public class Functions {
                          "2. Display info about random movie \n" +
                          "3. Type actor name and display his movies \n" +
                          "4. End program \n" +
-                         "Enter the number:");
+                         "Enter the number: ");
     }
 
     public static void displayMoviesFromPeriod(MovieLibrary movieLibrary){
