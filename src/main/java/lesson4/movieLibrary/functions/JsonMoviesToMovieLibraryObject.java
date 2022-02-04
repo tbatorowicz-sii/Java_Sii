@@ -1,5 +1,9 @@
-package lesson4.movieLibrary;
+package lesson4.movieLibrary.functions;
 
+import lesson4.movieLibrary.classes.Actor;
+import lesson4.movieLibrary.classes.Director;
+import lesson4.movieLibrary.classes.Movie;
+import lesson4.movieLibrary.classes.MovieLibrary;
 import org.apache.commons.io.FileUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
