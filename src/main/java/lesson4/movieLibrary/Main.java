@@ -127,7 +127,7 @@ public class Main {
 
         /*for (int i = 0; i < movieLibrary.getMovieArrayList().size(); i++)
             System.out.println(movieLibrary.getMovie(i).toString());*/
-        
+
         /*for (int i = 0; i < jsonArrayMovies.length(); i++)
         {
             System.out.println("Title: " + titleList.get(i));

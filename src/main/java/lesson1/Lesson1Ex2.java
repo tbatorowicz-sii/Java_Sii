@@ -1,18 +1,16 @@
 package lesson1;
 
-import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
 public class Lesson1Ex2 {
     public static void main(String[] args) {
         int numberToGuess = new Random().nextInt(100);
-        int myNumber;
+        int chances = 5;
         System.out.println("Guess the number! 0-99 ");
 
-        for (int chances = 5; chances > 0; chances--) {
-
-            myNumber = returnNumber();
+        while (true) {
+            int myNumber = new Scanner(System.in).nextInt();
 
             if (myNumber == numberToGuess) {
                 System.out.println("Good job, you win");
@@ -27,18 +25,8 @@ public class Lesson1Ex2 {
                 break;
             } else
                 System.out.println("Please try again");
-
-            System.out.println("Chances left: " + (chances - 1));
-        }
-    }
-
-    public static int returnNumber() {
-        while (true) {
-            try {
-                return new Scanner(System.in).nextInt();
-            } catch (InputMismatchException e) {
-                System.out.print("Something has gone wrong. Please try again: ");
-            }
+            chances--;
+            System.out.println("Chances left: " + (chances));
         }
     }
 }
