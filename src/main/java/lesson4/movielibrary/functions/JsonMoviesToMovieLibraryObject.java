@@ -1,9 +1,6 @@
 package lesson4.movielibrary.functions;
 
-import lesson4.movielibrary.classes.Actor;
-import lesson4.movielibrary.classes.Director;
-import lesson4.movielibrary.classes.Movie;
-import lesson4.movielibrary.classes.MovieLibrary;
+import lesson4.movielibrary.classes.*;
 import org.apache.commons.io.FileUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -19,7 +16,8 @@ public class JsonMoviesToMovieLibraryObject {
 
     public JsonMoviesToMovieLibraryObject(MovieLibrary movieLibrary) throws IOException {
 
-        String jsonString = FileUtils.readFileToString(new File("src/main/java/lesson4/movieLibrary/jsonFiles/movies"), StandardCharsets.UTF_8);
+        String jsonFilePath = "src/main/java/lesson4/movieLibrary/jsonFiles/movies";
+        String jsonString = FileUtils.readFileToString(new File(jsonFilePath), StandardCharsets.UTF_8);
         JSONArray jsonArrayMovies = new JSONObject(jsonString).getJSONArray("movies");
 
         for (int i = 0; i < jsonArrayMovies.length(); i++) {
@@ -30,22 +28,16 @@ public class JsonMoviesToMovieLibraryObject {
                     jsonObject.getString("title"),
                     jsonObject.getString("genre"),
                     jsonObject.getInt("year"),
-                    returnActorArrayList(movieJsonString, "actors"),
-                    returnDirectorArrayList(movieJsonString, "directors")));
+                    returnPersonArrayList(movieJsonString, "actors")
+                            .stream().map(Actor::new).collect(Collectors.toCollection(ArrayList::new)),
+                    returnPersonArrayList(movieJsonString, "directors")
+                            .stream().map(Director::new).collect(Collectors.toCollection(ArrayList::new))));
         }
     }
 
-    public static ArrayList<Actor> returnActorArrayList(String movieJsonString, String key) {
+    public static ArrayList<Person> returnPersonArrayList(String movieJsonString, String key) {
         JSONArray jsonArray = new JSONObject(movieJsonString).getJSONArray(key);
-        return IntStream.range(0, jsonArray.length()).mapToObj(i -> new Actor(
-                        jsonArray.getJSONObject(i).getString("name"),
-                        jsonArray.getJSONObject(i).getString("surname")))
-                .collect(Collectors.toCollection(ArrayList::new));
-    }
-
-    public static ArrayList<Director> returnDirectorArrayList(String movieJsonString, String key) {
-        JSONArray jsonArray = new JSONObject(movieJsonString).getJSONArray(key);
-        return IntStream.range(0, jsonArray.length()).mapToObj(i -> new Director(
+        return IntStream.range(0, jsonArray.length()).mapToObj(i -> new Person(
                         jsonArray.getJSONObject(i).getString("name"),
                         jsonArray.getJSONObject(i).getString("surname")))
                 .collect(Collectors.toCollection(ArrayList::new));

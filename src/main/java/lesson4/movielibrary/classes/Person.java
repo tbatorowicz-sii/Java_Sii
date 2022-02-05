@@ -1,8 +1,12 @@
 package lesson4.movielibrary.classes;
 
-public class Actor extends Person{
+public class Person {
     private String name;
     private String surname;
+
+    public Person() {
+
+    }
 
     public String getName() {
         return name;
@@ -12,9 +16,9 @@ public class Actor extends Person{
         return surname;
     }
 
-    public Actor (Person person){
-        this.name = person.getName();
-        this.surname = person.getSurname();
+    public Person(String name, String surname) {
+        this.name = name;
+        this.surname = surname;
     }
 
     @Override

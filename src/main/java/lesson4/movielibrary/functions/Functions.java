@@ -14,7 +14,6 @@ public class Functions {
                          "1. Display movies from period \n" +
                          "2. Display info about random movie \n" +
                          "3. Type actor name and display his movies \n" +
-                         "4. End program \n" +
                          "Enter the number: ");
     }
 
@@ -23,6 +22,7 @@ public class Functions {
         int yearFrom = new Scanner(System.in).nextInt();
         System.out.print("Year to: ");
         int yearTo = new Scanner(System.in).nextInt();
+        System.out.println();
         for (Movie m : movieLibrary.getMovieArrayList()) {
             if (m.getYear() >= yearFrom && m.getYear() <= yearTo) {
                 System.out.println(m.getTitle());
@@ -39,6 +39,7 @@ public class Functions {
         String firstName = new Scanner(System.in).next();
         System.out.print("Actor surname: ");
         String lastName = new Scanner(System.in).next();
+        System.out.println();
         for (Movie m : movieLibrary.getMovieArrayList()) {
             for (Actor a : m.getActors()) {
                 if (firstName.equals(a.getName()) && lastName.equals(a.getSurname())) {

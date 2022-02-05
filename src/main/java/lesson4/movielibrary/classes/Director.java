@@ -1,12 +1,12 @@
 package lesson4.movielibrary.classes;
 
-public class Director {
+public class Director extends Person{
     private String name;
     private String surname;
 
-    public Director(String name, String surname) {
-        this.name = name;
-        this.surname = surname;
+    public Director (Person person){
+        this.name = person.getName();
+        this.surname = person.getSurname();
     }
 
     @Override

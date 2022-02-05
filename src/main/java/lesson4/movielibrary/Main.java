@@ -19,20 +19,18 @@ public class Main {
 
         while (true) {
             displayMenu();
-            switch (new Scanner(System.in).nextInt()) {
-                case 1:
+            switch (new Scanner(System.in).next()) {
+                case "1":
                     displayMoviesFromPeriod(movieLibrary);
                     break;
-                case 2:
+                case "2":
                     displayInfoAboutRandomMovie(movieLibrary);
                     break;
-                case 3:
+                case "3":
                     displayMoviesForActor(movieLibrary);
                     break;
-                case 4:
-                    return;
                 default:
-                    System.out.println("Out of range");
+                    return;
             }
         }
     }

@@ -35,6 +35,6 @@ public class Movie {
                "directors: " + this.directors.toString().substring(1, this.directors.toString().length() - 1) + "\n" +
                "genre: " + this.genre + "\n" +
                "date: " + this.year + "\n" +
-               "actors: " + this.actors.toString().substring(1, this.actors.toString().length() - 1) + "\n";
+               "actors: " + this.actors.toString().substring(1, this.actors.toString().length() - 1);
     }
 }

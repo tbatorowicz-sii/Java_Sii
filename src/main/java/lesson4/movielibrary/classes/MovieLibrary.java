@@ -9,7 +9,6 @@ public class MovieLibrary {
         return movieArrayList;
     }
 
-
     public MovieLibrary(ArrayList<Movie> movieArrayList) {
         this.movieArrayList = movieArrayList;
     }
