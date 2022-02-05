@@ -12,13 +12,11 @@ import java.util.ArrayList;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-public class JsonMoviesToMovieLibraryObject {
+public class JSONFileToClassObject {
 
-    public JsonMoviesToMovieLibraryObject(MovieLibrary movieLibrary) throws IOException {
+    public JSONFileToClassObject(MovieLibrary movieLibrary) throws IOException {
 
-        String jsonFilePath = "src/main/java/lesson4/movieLibrary/jsonFiles/movies";
-        String jsonString = FileUtils.readFileToString(new File(jsonFilePath), StandardCharsets.UTF_8);
-        JSONArray jsonArrayMovies = new JSONObject(jsonString).getJSONArray("movies");
+        JSONArray jsonArrayMovies = new JSONObject(jsonFileToString()).getJSONArray("movies");
 
         for (int i = 0; i < jsonArrayMovies.length(); i++) {
             String movieJsonString = jsonArrayMovies.get(i).toString();
@@ -41,6 +39,10 @@ public class JsonMoviesToMovieLibraryObject {
                         jsonArray.getJSONObject(i).getString("name"),
                         jsonArray.getJSONObject(i).getString("surname")))
                 .collect(Collectors.toCollection(ArrayList::new));
+    }
+
+    public static String jsonFileToString() throws IOException {
+        return FileUtils.readFileToString(new File("src/main/java/lesson4/movieLibrary/jsonFiles/movies"), StandardCharsets.UTF_8);
     }
 
 }

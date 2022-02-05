@@ -1,7 +1,7 @@
 package lesson4.movielibrary;
 
 import lesson4.movielibrary.classes.MovieLibrary;
-import lesson4.movielibrary.functions.JsonMoviesToMovieLibraryObject;
+import lesson4.movielibrary.functions.JSONFileToClassObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -15,7 +15,7 @@ public class Main {
 
         MovieLibrary movieLibrary = new MovieLibrary(new ArrayList<>());
 
-        new JsonMoviesToMovieLibraryObject(movieLibrary);
+        new JSONFileToClassObject(movieLibrary);
 
         while (true) {
             displayMenu();
